@@ -34,7 +34,7 @@ async function getSales(organiserId) {
       sum += data.ticketPrice.value;
     }
   });
-  return `Total Sales: £${sum}`;
+  return `£${sum}`;
 }
 
 async function printSales() {
@@ -44,5 +44,27 @@ async function printSales() {
   salesOutput.innerText = await printedSales;
 }
 
+async function getEventsales(eventId) {
+  let sum = 0;
+  const dataSet = await getData();
+
+  dataSet.forEach(data => {
+    if (eventId == data.eventId && data.status == "CONFIRMED") {
+      sum += data.ticketPrice.value;
+    }
+  });
+  return `£${sum}`;
+}
+
+async function printEventsales() {
+  const eventsalesOutput = document.getElementById("eventsales");
+  const eventInput = document.getElementById("eventidsales").value;
+  const printedEventsales = getEventsales(eventInput);
+  eventsalesOutput.innerText = await printedEventsales;
+}
+
 document.getElementById("eventBtn").addEventListener("click", printNames);
 document.getElementById("salesBtn").addEventListener("click", printSales);
+document
+  .getElementById("eventsalesBtn")
+  .addEventListener("click", printEventsales);
