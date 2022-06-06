@@ -8,4 +8,4 @@
 
 ## Screenshot of webpage
 
-![example](/home/linux/techtests/letsdothis/letsdothisexample.png)
+![example](letsdothisexample.png)
