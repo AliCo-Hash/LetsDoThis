@@ -37,5 +37,12 @@ async function getSales(organiserId) {
   return `Total Sales: £${sum}`;
 }
 
+async function printSales() {
+  const salesOutput = document.getElementById("sales");
+  const organiserInput = document.getElementById("organiserid").value;
+  const printedSales = getSales(organiserInput);
+  salesOutput.innerText = await printedSales;
+}
 
 document.getElementById("eventBtn").addEventListener("click", printNames);
+document.getElementById("salesBtn").addEventListener("click", printSales);
