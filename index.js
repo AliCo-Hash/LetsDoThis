@@ -19,10 +19,9 @@ async function getStartlist(eventId) {
 }
 
 async function printNames() {
-  const namesOutput = document.getElementById("names");
   const eventInput = document.getElementById("eventid").value;
   const printedName = getStartlist(eventInput);
-  namesOutput.innerText = await printedName;
+  document.getElementById("names").innerText = await printedName;
 }
 
 async function getSales(organiserId) {
@@ -38,10 +37,9 @@ async function getSales(organiserId) {
 }
 
 async function printSales() {
-  const salesOutput = document.getElementById("sales");
   const organiserInput = document.getElementById("organiserid").value;
   const printedSales = getSales(organiserInput);
-  salesOutput.innerText = await printedSales;
+  document.getElementById("sales").innerText = await printedSales;
 }
 
 async function getEventsales(eventId) {
@@ -57,10 +55,9 @@ async function getEventsales(eventId) {
 }
 
 async function printEventsales() {
-  const eventsalesOutput = document.getElementById("eventsales");
   const eventInput = document.getElementById("eventid").value;
   const printedEventsales = getEventsales(eventInput);
-  eventsalesOutput.innerText = await printedEventsales;
+  document.getElementById("eventsales").innerText = await printedEventsales;
 }
 
 document.getElementById("eventBtn").addEventListener("click", printNames);
