@@ -58,13 +58,11 @@ async function getEventsales(eventId) {
 
 async function printEventsales() {
   const eventsalesOutput = document.getElementById("eventsales");
-  const eventInput = document.getElementById("eventidsales").value;
+  const eventInput = document.getElementById("eventid").value;
   const printedEventsales = getEventsales(eventInput);
   eventsalesOutput.innerText = await printedEventsales;
 }
 
 document.getElementById("eventBtn").addEventListener("click", printNames);
+document.getElementById("eventBtn").addEventListener("click", printEventsales);
 document.getElementById("salesBtn").addEventListener("click", printSales);
-document
-  .getElementById("eventsalesBtn")
-  .addEventListener("click", printEventsales);
