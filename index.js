@@ -25,4 +25,17 @@ async function printNames() {
   namesOutput.innerText = await printedName;
 }
 
+async function getSales(organiserId) {
+  let sum = 0;
+  const dataSet = await getData();
+
+  dataSet.forEach(data => {
+    if (organiserId == data.organiserId && data.status == "CONFIRMED") {
+      sum += data.ticketPrice.value;
+    }
+  });
+  return `Total Sales: £${sum}`;
+}
+
+
 document.getElementById("eventBtn").addEventListener("click", printNames);
